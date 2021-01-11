@@ -21,7 +21,6 @@ export default class MovieService {
     getMovies = async() => {
         let movies = await this.requestMovies(this._url);
         movies = movies.slice(0, 6);
-        console.log(movies);
         movies = movies.map(({ title, id, overview, poster_path }) => {
             overview = this.descriptionReducer(overview);
             return {
