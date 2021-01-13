@@ -1,21 +1,21 @@
 import React, {Component} from 'react';
 import MovieService from "../../services/movie-service";
-import PreviewList from "../preview-list";
-import './app.css';
+import PreviewList from "../PreviewList";
+import './App.css';
 
 export default class App extends Component {
     movieService = new MovieService();
+
     constructor(props) {
         super(props);
+        
         this.state = {
             movieList: []
         };
-
-
+        
         this.getMovies();
     }
-
-
+    
     getMovies = () => {
         this.movieService.getMovies()
             .then(movieList => {
@@ -24,9 +24,10 @@ export default class App extends Component {
     };
 
     render() {
+        const { movieList } = this.state;
         return (
             <div className="main">
-                <PreviewList movieList={this.state.movieList} />
+                <PreviewList movieList={movieList} />
             </div>
         )
     }
