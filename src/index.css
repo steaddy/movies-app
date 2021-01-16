@@ -12,7 +12,8 @@ body {
 }
 
 #root {
-  margin: auto;
+  display: flex;
+  justify-content: center;
 }
 .main {
   background: #fff;
