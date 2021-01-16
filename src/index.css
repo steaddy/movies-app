@@ -1,6 +1,9 @@
-body *{
+#root *{
   display: flex;
   box-sizing: border-box;
+}
+html, body, #root {
+  height: 100%;
 }
 body {
   margin: 0;
@@ -9,7 +12,7 @@ body {
 }
 
 #root {
-  justify-content: center;
+  margin: auto;
 }
 .main {
   background: #fff;
