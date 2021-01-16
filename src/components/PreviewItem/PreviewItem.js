@@ -6,7 +6,7 @@ export default class PreviewItem extends Component{
     bannerUrlBase = 'https://image.tmdb.org/t/p/original';
 
     render() {
-        const { posterPath, title, overview } = this.props;
+        const { posterPath, title, overview, releaseDate } = this.props.movieList;
         return (
         <section className='preview-item'>
             <div className="preview-item__banner"
@@ -14,7 +14,7 @@ export default class PreviewItem extends Component{
              />
             <div className="preview-item__main-content">
                 <h5>{title}</h5>
-                <time className='premier-date' dateTime='2020-3-5'>March 5, 2020</time>
+                <time className='premier-date' dateTime='2020-3-5'>{releaseDate}</time>
                 <div className="genre-list">
                     <div className='genre'>Action</div>
                     <div className='genre'>Drama</div>

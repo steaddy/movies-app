@@ -6,11 +6,9 @@ export default class PreviewList extends Component {
 
     render () {
         const {movieList} = this.props;
-            const previews = movieList.map(({ title, id, overview, posterPath }) => <PreviewItem
-                title={title}
+            const previews = movieList.map(({id, ...movieList}) => <PreviewItem
+                movieList={movieList}
                 key={id}
-                overview={overview}
-                posterPath={posterPath}
             />)
         return (
             previews

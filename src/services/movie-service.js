@@ -1,3 +1,5 @@
+import {format} from 'date-fns';
+
 export default class MovieService {
     url = 'https://api.themoviedb.org/3/search/movie?api_key=19033764dfddc0cc258c48b5d01a5964&query=return';
 
@@ -23,13 +25,14 @@ export default class MovieService {
         let movies = await this.requestMovies(this.url);
         movies = movies.slice(0, 6);
         // eslint-disable-next-line camelcase
-        movies = movies.map(({ title, id, overview, poster_path }) => {
+        movies = movies.map(({ title, id, overview, poster_path, release_date }) => {
             const reducedOverview = this.descriptionReducer(overview);
             return {
                 title,
                 id,
                 overview: reducedOverview,
-                posterPath: poster_path
+                posterPath: poster_path,
+                releaseDate: format(new Date(release_date), 'MMMM dd, yyyy')
             }
         })
         return movies;
