@@ -1,0 +1,19 @@
+.ant-spin, .ant-alert-error {
+    margin-top: 20%;
+}
+
+.preview-list * {
+    display: flex;
+}
+
+.preview-list {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.nothing-found {
+    margin-top: 20px;
+    color: darkorange;
+}

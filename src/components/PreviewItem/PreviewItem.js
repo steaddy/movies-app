@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import './PreviewItem.css';
+import noImage from "../../img/no_image.png";
 
 export default class PreviewItem extends Component{
 
@@ -19,15 +20,21 @@ export default class PreviewItem extends Component{
         })
     };
 
+
+
+
     render() {
         const {movieProps} = this.props;
         const { posterPath, title, overview, releaseDate } = movieProps;
 
         return (
         <section className='preview-item'>
-            <div className="preview-item__banner"
-            style={{'backgroundImage': `url(${this.bannerUrlBase}${posterPath}`}}
-             />
+            <div className="preview-item__banner">
+
+                {posterPath ? <img src={this.bannerUrlBase + posterPath} alt="Banner"/>
+                : <img className="no-image" src={noImage} alt="Banner"/>}
+
+                </div>
             <div className="preview-item__main-content">
                 <h5>{title}</h5>
                 <time className='premier-date' dateTime={releaseDate}>{releaseDate}</time>

@@ -1,9 +1,5 @@
-#root *{
-  display: flex;
-  box-sizing: border-box;
-}
-html, body, #root {
-  height: 100%;
+body, #root {
+  min-height: 100%;
 }
 body {
   margin: 0;
@@ -14,14 +10,17 @@ body {
 #root {
   display: flex;
   justify-content: center;
+  box-sizing: border-box;
 }
 .main {
+  display: flex;
   background: #fff;
   width: 1010px;
   min-height: 100%;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  align-content: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  box-sizing: border-box;
 }
 
 h5 {

@@ -1,26 +1,44 @@
 import React, {Component} from 'react';
+import { Spin, Alert } from 'antd';
+import 'antd/dist/antd.css';
 import PropTypes from 'prop-types';
 import PreviewItem from "../PreviewItem/PreviewItem";
 import './PreviewList.css';
 
+// eslint-disable-next-line react/prefer-stateless-function
 export default class PreviewList extends Component {
 
     static defaultProps = {
-        movieList: []
+        movieList: [],
+        loading: true,
+        error: false,
     };
 
     static propTypes = {
-        movieList: PropTypes.arrayOf(PropTypes.object)
+        movieList: PropTypes.arrayOf(PropTypes.object),
+        loading: PropTypes.bool,
+        error: PropTypes.bool,
     };
 
     render () {
-        const {movieList} = this.props;
+        const {movieList, loading, error} = this.props;
         const previews = movieList.map(({id, ...movieProps}) => <PreviewItem
             movieProps={movieProps}
                 key={id}
-            />)
+        />);
+        const notFound = !previews.length && !loading ? <p className="nothing-found">Nothing found, try another query.</p> : null;
+        const spin = loading && !error ? <Spin size="large"/> : null;
+        const alert = error ? <Alert type="error" message="An error has occurred." showIcon /> : null;
+
         return (
-            previews
-        );
+            <>
+                {spin}
+            <div className="preview-list">
+                {notFound}
+                {previews}
+                {alert}
+            </div>
+                </>
+        )
     }
 }
