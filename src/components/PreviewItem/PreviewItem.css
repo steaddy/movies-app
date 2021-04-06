@@ -20,6 +20,11 @@
 .preview-item__main-content {
     padding: 12px 20px;
     flex-direction: column;
+    position: relative;
+}
+
+.preview-item__main-content h5 {
+    margin-right: 15px;
 }
 .premier-date {
     height: 22px;
@@ -54,3 +59,16 @@
     height: fit-content;
     margin: auto;
 }*/
+
+div .ratingIndicator {
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    line-height: 26px;
+    right: 9px;
+    top: 12px;
+    border-radius: 50%;
+    border: 2px solid #E9D100;
+    text-align: center;
+}

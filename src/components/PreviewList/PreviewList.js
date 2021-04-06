@@ -12,18 +12,22 @@ export default class PreviewList extends Component {
         movieList: [],
         loading: true,
         error: false,
+
+        rateMovie: () => {},
     };
 
     static propTypes = {
         movieList: PropTypes.arrayOf(PropTypes.object),
         loading: PropTypes.bool,
         error: PropTypes.bool,
+        rateMovie: PropTypes.func,
     };
 
     render () {
-        const {movieList, loading, error} = this.props;
+        const {movieList, loading, error, rateMovie} = this.props;
         const previews = movieList.map(({id, ...movieProps}) => <PreviewItem
             movieProps={movieProps}
+            rateMovie={rateMovie}
                 key={id}
         />);
         const notFound = !previews.length && !loading ? <p className="nothing-found">Nothing found, try another query.</p> : null;
