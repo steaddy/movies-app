@@ -7,11 +7,14 @@ class TabSelector extends Component {
     static defaultProps = {
         getRatedMovies: () => {
         },
+        getMovies: () => {
+        },
     };
 
     static
     propTypes = {
         getRatedMovies: PropTypes.func,
+        getMovies: PropTypes.func,
     };
 
 
